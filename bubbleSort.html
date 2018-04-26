@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>冒泡排序</title>
+</head>
+<body>
+    <script>
+        
+        var SortArray = function() {
+            this.dataStore = [10,5,8,3,11,7,9,1];
+            this.swap = swap;
+            this.bubbleSort = bubbleSort;
+        }
+
+        function swap(array, index1, index2) {
+            var tmp = array[index1];
+            array[index1] = array[index2];
+            array[index2] = tmp;
+        }
+
+        function bubbleSort() {
+            var data = this.dataStore;
+            var length = data.length;
+
+            //inner使用outter循环是因为，每次都排好了一位，没必要多循环
+            //--outter是因为不用根自己比较，所以少一次循环比较
+            for(var outter = length; outter >= 2; --outter) {
+                for(var inner = 0; inner < outter; inner++) {
+                    if(data[inner] > data[inner + 1]) {
+                        this.swap(data, inner, inner + 1);
+                    }
+                }
+            }
+        }
+
+        var test = new SortArray();
+        test.bubbleSort();
+        console.log(test.dataStore);
+    </script>
+</body>
+</html>
