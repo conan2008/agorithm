@@ -27,7 +27,7 @@
 
             //inner使用outter循环是因为，每次都排好了一位，没必要多循环
             //--outter是因为不用根自己比较，所以少一次循环比较
-            for(var outter = length; outter >= 2; --outter) {
+            for(var outter = length; outter >= 1; outter--) {
                 for(var inner = 0; inner < outter; inner++) {
                     if(data[inner] > data[inner + 1]) {
                         this.swap(data, inner, inner + 1);

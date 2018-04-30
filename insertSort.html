@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>插入排序</title>
+</head>
+
+<body>
+    <script>
+        function CArray() {
+            this.dataStore = [67, 5, 12, 22, 45, 6, 9, 1, 10, 0];
+            // this.dataStore = [67,5,12];
+            this.insertSort = insertSort;
+        }
+
+        function insertSort() {
+            var data = this.dataStore;
+            var length = data.length;
+            var tmp, inner;
+
+            for(var outer = 1; outer < length; ++outer) {
+
+                tmp = data[outer];
+                inner = outer;
+
+                while(data[inner-1] > tmp) {
+                    data[inner] = data[inner-1];
+                    inner--;
+                }
+
+                data[inner] = tmp;
+            }
+        }
+        
+        var arr = new CArray();
+        arr.insertSort();
+        console.log(arr.dataStore);
+        // function insertSort() {
+        //     var data = this.dataStore;
+        //     var length = data.length;
+        //     var tmp;
+        //     var tmpInner;
+
+        //     for (var outer = 1; outer < length; outer++) {
+        //         tmp = data[outer];
+
+        //         //这个for循环负责把下标后移，并且记录下需要替换的坐标
+        //         for (var inner = outer - 1; inner >= 0; inner--) {
+        //             //在这个if里开始把tmp写成了data[outer],这个就有问题了，因为下面一直在操作data
+        //             if (tmp < data[inner]) {
+        //                 data[inner+1] = data[inner];
+        //                 tmpInner = inner;
+        //             }
+        //         }
+
+        //         data[tmpInner] = tmp;
+
+        //     }
+        // }
+
+    </script>
+</body>
+
+</html>

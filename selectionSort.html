@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择排序</title>
+</head>
+
+<body>
+    <script>
+        function CArray() {
+            this.dataStore = [12, 66, 33, 43, 2, 7, 9, 0, 19];
+            this.swap = swap;
+            this.selectionSort = selectionSort;
+        }
+
+        function swap(data, index1, index2) {
+            var temp = data[index1];
+            data[index1] = data[index2];
+            data[index2] = temp;
+        }
+
+        function selectionSort() {
+
+            var data = this.dataStore;
+            var length = data.length;
+
+            var min;
+
+            for (var outter = 0; outter < length - 1; outter++) {
+
+                min = outter;
+                for (var i = outter + 1; i < length; i++) {
+                    if (data[min] > data[i]) {
+                        min = i
+                    }
+                }
+                
+                this.swap(data, min, outter);
+            }
+
+        }
+
+        var arr = new CArray();
+        arr.selectionSort()
+        console.log(arr.dataStore);
+    </script>
+</body>
+
+</html>
